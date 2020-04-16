@@ -12,97 +12,7 @@ app.use('/public', express.static('public'));
 app.set('view engine', 'pug');
 app.set('views', './views');
 
-let books = [
-  {
-    id: uuid(),
-    name: 'Harry Potter and the philisopher\'s stone',
-    author: 'J. K. Rowling',
-    publishedDate: '1997-06-26',
-    status: STATUSES["NOT AVAILABLE"],
-    grantedUser: {
-      firstname: 'first',
-      lastname: 'last'
-    },
-    grantedDate: '2020-04-09',
-    returnDate: '2020-03-06',
-  },
-  {
-    id: uuid(),
-    name: 'Harry Potter and the philisopher\'s stone',
-    author: 'J. K. Rowling',
-    publishedDate: '1997-06-26',
-    status: STATUSES.AVAILABLE,
-    grantedUser: null,
-    grantedDate: null,
-    returnDate: null,
-  },
-  {
-    id: uuid(),
-    name: 'Harry Potter and the philisopher\'s stone',
-    author: 'J. K. Rowling',
-    publishedDate: '1997-06-26',
-    status: STATUSES.AVAILABLE,
-    grantedUser: null,
-    grantedDate: null,
-    returnDate: null,
-  },
-  {
-    id: uuid(),
-    name: 'Harry Potter and the philisopher\'s stone',
-    author: 'J. K. Rowling',
-    publishedDate: '1997-06-26',
-    status: STATUSES["NOT AVAILABLE"],
-    grantedUser: {
-      firstname: 'first',
-      lastname: 'last'
-    },
-    grantedDate: '2020-03-11',
-    returnDate: '2020-04-15',
-  },
-  {
-    id: uuid(),
-    name: 'Harry Potter and the philisopher\'s stone',
-    author: 'J. K. Rowling',
-    publishedDate: '1997-06-26',
-    status: STATUSES.AVAILABLE,
-    grantedUser: null,
-    grantedDate: null,
-    returnDate: null,
-  },
-  {
-    id: uuid(),
-    name: 'Harry Potter and the philisopher\'s stone',
-    author: 'J. K. Rowling',
-    publishedDate: '1997-06-26',
-    status: STATUSES.AVAILABLE,
-    grantedUser: null,
-    grantedDate: null,
-    returnDate: null,
-  },
-  {
-    id: uuid(),
-    name: 'Harry Potter and the philisopher\'s stone',
-    author: 'J. K. Rowling',
-    publishedDate: '1997-06-26',
-    status: STATUSES.AVAILABLE,
-    grantedUser: null,
-    grantedDate: null,
-    returnDate: null,
-  },
-  {
-    id: uuid(),
-    name: 'Harry Potter and the philisopher\'s stone',
-    author: 'J. K. Rowling',
-    publishedDate: '1997-06-26',
-    status: STATUSES["NOT AVAILABLE"],
-    grantedUser: {
-      firstname: 'first',
-      lastname: 'last'
-    },
-    grantedDate: '2020-04-01',
-    returnDate: '2020-04-30',
-  },
-];
+let books = [];
 
 app.get('/', (req, res) => {
   res.render('main', { nowDate: dayjs().format('YYYY-MM-DD') });
@@ -124,7 +34,7 @@ app.post('/addBook', (req, res) => {
     publishedDate,
   }
 
-  initialState.books && initialState.books.push(newBook)
+  books.push(newBook)
   return res.sendStatus(200);
 });
 
