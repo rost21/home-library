@@ -1,0 +1,23 @@
+{
+  "name": "lab4",
+  "version": "1.0.0",
+  "description": "lab4",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon -r esm index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "pug": "^2.0.4"
+  },
+  "devDependencies": {
+    "cors": "^2.8.5",
+    "dayjs": "^1.8.24",
+    "esm": "^3.2.25",
+    "nodemon": "^2.0.3",
+    "uuid": "^7.0.3"
+  }
+}

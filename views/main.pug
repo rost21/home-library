@@ -1,0 +1,82 @@
+html
+  head
+    title= title
+    link(rel='stylesheet', href='public/styles/main.css')
+  body(onload="loadBooks()")
+    script(type='text/javascript' src='public/scripts/main.js')
+    script(type='text/javascript' src='https://unpkg.com/dayjs@1.8.21/dayjs.min.js')
+    div.container
+      div.modal-window-add-book.modal
+        div.modal-container
+          div.modal-header
+            div
+              h3(style="margin: 0") Add book to library
+            span.close-modal(onclick="closeModalAddBook()") &times;
+          div.modal-body
+            p Fill the form
+            div.modal-body-item
+              label Name
+              input#input-book-name
+            div.modal-body-item
+              label Author
+              input#input-book-author
+            div.modal-body-item
+              label Publish date
+              input#input-book-date(type="date")
+            p
+              button(type="button" onclick="addBook()") Add book
+      div.modal-window-grant-book.modal
+        div.modal-container
+          div.modal-header
+            div
+              h3(style="margin: 0") Grant book
+            span.close-modal(onclick="closeModalGrantBook()") &times;
+          div.modal-body
+            p Fill the form user
+            div.modal-body-item
+              label Firstname
+              input#input-grant-user-firstname
+            div.modal-body-item
+              label Lastname
+              input#input-grant-user-lastname
+            div.modal-body-item 
+              label Granted date
+              input#input-grant-granted-date(type="date" value=nowDate)
+            div.modal-body-item
+              label Return date
+              input#input-grant-return-date(type="date")
+            p
+              button(type="button" onclick="grantBook()") Grant book            
+      div.modal-window-single-book.modal
+        div.modal-container
+          div.modal-header
+            div
+              h3(style="margin: 0") Edit book
+            span.close-modal(onclick="closeModalSingleBook()") &times;
+          div.modal-body.modal-single-book
+      div.header
+        h2 Home Library
+      div.layout
+        div.sidebar
+          div.sidebar-header
+            h3 Filters
+          div.sidebar-content
+            div.modal-body-item
+              label(style="width: 90px;") Select books
+              select#filter-status
+                option(value="AVAILABLE") Available
+                option(value="NOT AVAILABLE") Not available
+                option(value="EXPIRED") Expired
+            div.modal-body-item
+              label(style="width: 90px;") Sort by
+              select#filter-sort
+                option(value="asc") Return date, asc
+                option(value="desc") Return date, desc
+          div.sidebar-buttons-container
+            button(onclick="applyFilters()") Apply filters
+            button(onclick="resetFilters()") Reset filters
+        div.content
+          div.content-header
+            h3 Books
+            button(type="button" onclick="openModalAddBook()") Add book to library
+          div.block-content
